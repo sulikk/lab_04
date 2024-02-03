@@ -26,3 +26,4 @@ jobs:
       - run: python --version
       - run: flake8 .
       - run: python -m unittest discover
+      - run: python test.py
