@@ -17,13 +17,22 @@ jobs:
             python-version: "3.10"
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - name: sprawdzenie repozytorium
+        uses: actions/checkout@v2
+      - name: konfiguracja pythona
+        uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - run: python -m pip install --upgrade pip
-      - run: python -m pip install flake8
-      - run: python --version
-      - run: flake8 .
-      - run: python -m unittest discover
-      - run: python test.py
+      - name: aktualizacja pip
+        run: python -m pip install --upgrade pip
+      - name: instalacja flake8
+        run: python -m pip install flake8
+      - name: wyświetlenie wersji pythona
+        run: python --version
+      - name: uruchomienie flake8
+        run: flake8 .
+      - name: uruchomienie unittest
+        run: python -m unittest discover
+      - name: uruchomienie unittest w osobnym pliku
+        run: python -m unittest discover -p test.py
+
