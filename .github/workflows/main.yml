@@ -36,5 +36,5 @@ jobs:
       - name: zmiana katalogu na głowny katalog repozytorium
         run: cd $GITHUB_WORKSPACE
       - name: uruchomienie testów
-        run: python testy.py
+        run: python test.py
 
